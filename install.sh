@@ -43,8 +43,6 @@ os_version=$(grep -i version_id /etc/os-release | cut -d \" -f2 | cut -d . -f1)
 
 if [[ "${release}" == "arch" ]]; then
     echo "Your OS is Arch Linux"
-elif [[ "${release}" == "linuxmint" ]]; then
-    echo "Your OS is Linux Mint"
 elif [[ "${release}" == "parch" ]]; then
     echo "Your OS is Parch linux"
 elif [[ "${release}" == "manjaro" ]]; then
@@ -54,6 +52,9 @@ elif [[ "${release}" == "armbian" ]]; then
 elif [[ "${release}" == "centos" ]]; then
     if [[ ${os_version} -lt 8 ]]; then
         echo -e "${red} Please use CentOS 8 or higher ${plain}\n" && exit 1
+    fi
+elif [[ "${release}" == "linuxmint" ]]; then
+    echo "Your OS is Linux Mint"
     fi
 elif [[ "${release}" == "ubuntu" ]]; then
     if [[ ${os_version} -lt 20 ]]; then
